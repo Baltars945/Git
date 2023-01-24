@@ -200,14 +200,21 @@ ls
 fichier1.md  fichier2.md
 
 Pourquoi les deux sorties sont-elles différentes ? Les fichiers ont-ils disparus ?
+
 les modification on été réalisé sur fonctionnalite1 et pas sur master donc ils non pas disparu
+
 Créer une nouvelle branche fonctionnalite2
 
 git branch fonctionnalite2
 
 Cette branche ne va pas avoir toutes les données incluses dans fonctionnalite1. Pourquoi ?
 
+Elle a été créer sur master donc contient le même contenu que master donc ne contient pas le contenu de fonctionnalite1
+
 Qu'aurait-il fallu faire si on avait souhaité démarrer la branche fonctionnalite2 en intégrant les modifications récentes de fonctionnalite1 ?
+
+il aurait fallu créer la branch fonctionnalite2 depuis fonctionnalite1 pour contenir ses changement
+
 Se déplacer sur la nouvelle branche fonctionnalite2
 
 git checkout fonctionnalite2
@@ -225,10 +232,12 @@ Noter la « déviation » entre les deux branches, à partir de la branche m
 
 Installer l'extension VS Code Git Graph et visualiser le graphe actuel des commits à l'aide de cette extension
 Sur cette représentation, que représente les points ?
-Les points représentes les branch
+
+Les points représentes les les commits
+
 Comment voit-on sur quelle branche on est actuellement ?
 
-Elle sera de couleur bleu lorsqu'on est dessus
+Elle aura ses contour de couleur bleu lorsqu'on est dessus
 
 On considère que la branche originale (master ou main) est la branche d'intégration, c'est-à-dire celle qui va contenir l'historique de toutes les modifications développées au fur et à mesure dans les branches annexes
 On va maintenant fusionner la branche fonctionnalite1, qui est terminée, avec la branche d'intégration
@@ -279,7 +288,26 @@ Veuillez valider ou remiser vos modifications avant la fusion.
 Abandon
 
 Lancer un git status
+
+git status
+Sur la branche fonctionnalite3
+Vous avez des chemins non fusionnés.
+  (réglez les conflits puis lancez "git commit")
+  (utilisez "git merge --abort" pour annuler la fusion)
+
+Modifications qui seront validées :
+        nouveau fichier : fichier3.md
+        nouveau fichier : fichier4.md
+        nouveau fichier : fichier5.md
+
+Chemins non fusionnés :
+  (utilisez "git add <fichier>..." pour marquer comme résolu)
+        modifié des deux côtés :  fichier1.md
+        
 Que doit-on faire si on veut annuler la fusion en cours ?
+
+Résoudre le conflit entre le fichier1 de la branche master et le fichier1 de la branche fonctionnalite3
+
 On veut résoudre le conflit. Plusieurs possibilités :
 Conserver uniquement les modifications faites dans fonctionnalite3
 Conserver uniquement les modifications faites dans master
